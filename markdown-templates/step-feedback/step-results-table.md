@@ -2,34 +2,27 @@
 
 {%- if all_passed %}
 
-## Step {{ step_number }} - Passed ✅
+## Etapa {{ step_number }} - Aprovado ✅
 
 {%- else %}
 
-## Step {{ step_number }} - Fail ❌
+## Etapa {{ step_number }} - Falha ❌
 
+Algumas verificações falharam. Por favor, revise os resultados abaixo e tente novamente.
+
+Hora de encontrar o erro! 🤔
 {%- endif %}
 
-{%- if all_passed %}
-<img src="https://octodex.github.com/images/inflatocat.png" align="right" height="150px" alt="Inflatocat image indicating the step passed" />
-{%- else %}
-
-<img src="https://octodex.github.com/images/spidertocat.png" align="right" height="100px" alt="Spidertocat image indicating the step failed" />
-Some checks failed. Please review the results below and try again.
-
-Time to find the bug! 🤔
-{%- endif %}
-
-| Status | Description |
+| Status | Descrição |
 | ------ | ----------- |
 
 {%- for row in results_table %}
-| {% if row.passed -%}✅ - Pass{%- else -%}❌ - Fail{%- endif %} | {{ row.description }} |
+| {% if row.passed -%}✅ - Aprovado{%- else -%}❌ - Falhou{%- endif %} | {{ row.description }} |
 {%- endfor %}
 
 {%- if tips and tips.length %}
 
-### Tips
+### Dicas
 
 {%- for tip in tips %}
 

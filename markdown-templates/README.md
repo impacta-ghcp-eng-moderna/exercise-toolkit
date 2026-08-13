@@ -1,27 +1,26 @@
-# Skills Exercises Markdown Templates
+# Modelos de Markdown para Exercícios
+Uma coleção de modelos para uso em exercícios.
 
-A collection of templates for use in Skills exercises.
+## Coleções de Modelos
 
-## Template Collections
+- `/readme/*` - modelos destinados a atualizar o arquivo readme raiz de um exercício.
+- `/step-feedback/*` - modelos para compartilhar o progresso das etapas, avaliação de aprovação/falha e parabenizações. Normalmente usados em comentários de issues.
 
-- `/readme/*` - templates intended for updating an exercise's root readme file.
-- `/step-feedback/*` - templates for sharing step progress, grading pass/fail, and congratulations. Typically used for issue comments.
+## Variáveis de Modelo
 
-## Template Variables
-
-Several templates contain [Nunjucks](https://mozilla.github.io/nunjucks/) style variable templating. They are intended for use with the [skills/action-text-variables](https://github.com/skills/action-text-variables) or [GrantBirki/comment](https://github.com/GrantBirki/comment) GitHub Actions, both of which support full Nunjucks templating.
-
+Vários modelos contêm templating de variáveis estilo [Nunjucks](https://mozilla.github.io/nunjucks/). Eles são destinados para uso com as GitHub Actions [skills/action-text-variables](https://github.com/skills/action-text-variables) ou [GrantBirki/comment](https://github.com/GrantBirki/comment), ambas suportam templating completo de Nunjucks.
 
 
-### Example
+
+### Exemplo
 
 #### hello.md
 
 ```markdown
-Hello {{ login }}, nice to meet you!
+Olá {{ login }}, fico feliz em conhecer você!
 ```
 
-#### json input
+#### entrada json
 
 ```json
 {
@@ -29,10 +28,10 @@ Hello {{ login }}, nice to meet you!
 }
 ```
 
-#### yaml input
+#### entrada yaml
 ```yaml
 login: "${{ github.actor }}"
 ```
 
 > [!TIP]
-> See [Nunjucks templating documentation](https://mozilla.github.io/nunjucks/templating.html) for all capabilities like iteration, conditionals, and more.
+> Veja a [documentação de templating Nunjucks](https://mozilla.github.io/nunjucks/templating.html) para todas as capacidades como iteração, condicionais e muito mais.

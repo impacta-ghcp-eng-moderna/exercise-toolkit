@@ -1,90 +1,88 @@
-# Skills Exercises Toolkit :hammer_and_wrench:
+# Exercises Toolkit :hammer_and_wrench:
 
-<p align="center">
-  <img src="https://octodex.github.com/images/manufacturetocat.png" alt="Manufacturetocat" width="300" />
-</p>
+> 📝 **Nota**: Este é um fork personalizado do repositório original [impacta-ghcp-eng-moderna/exercise-toolkit](https://github.com/impacta-ghcp-eng-moderna/exercise-toolkit), adaptado e traduzido para as necessidades da Impacta.
 
-- [Skills Exercises Toolkit :hammer\_and\_wrench:](#skills-exercises-toolkit-hammer_and_wrench)
-  - [Purpose](#purpose)
-    - [Contents](#contents)
-  - [Examples](#examples)
-    - [⚙️ Reusable Workflows](#️-reusable-workflows)
-      - [Starting an exercise](#starting-an-exercise)
-      - [Finding an exercise](#finding-an-exercise)
-    - [📋 Markdown Templates](#-markdown-templates)
-      - [Using with GrantBirki/comment for issue comments](#using-with-grantbirkicomment-for-issue-comments)
-      - [Using with action-text-variables for file updates](#using-with-action-text-variables-for-file-updates)
-  - [Notable Resources](#notable-resources)
+- [Exercises Toolkit :hammer\_and\_wrench:](#exercises-toolkit-hammer_and_wrench)
+  - [Propósito](#propósito)
+    - [Conteúdo](#conteúdo)
+  - [Exemplos](#exemplos)
+    - [⚙️ Fluxos de Trabalho Reutilizáveis](#️-fluxos-de-trabalho-reutilizáveis)
+      - [Iniciando um exercício](#iniciando-um-exercício)
+      - [Encontrando um exercício](#encontrando-um-exercício)
+    - [📋 Modelos Markdown](#-modelos-markdown)
+      - [Usando com GrantBirki/comment para comentários em issues](#usando-com-grantbirkicomment-para-comentários-em-issues)
+      - [Usando com action-text-variables para atualizações de arquivo](#usando-com-action-text-variables-para-atualizações-de-arquivo)
+  - [Recursos Notáveis](#recursos-notáveis)
 
-## Purpose
+## Propósito
 
-This repository serves as a comprehensive toolkit for creating and managing GitHub Skills exercises. It provides a collection of tools, templates, and utilities designed to streamline the process of developing educational content for GitHub Skills.
+Este repositório funciona como um kit de ferramentas abrangente para criar e gerenciar exercícios. Fornece uma coleção de ferramentas, modelos e utilitários projetados para otimizar o processo de desenvolvimento de conteúdo educacional.
 
-### Contents
+### Conteúdo
 
-- **[.github/workflows](/.github/workflows)**: GitHub Actions workflows for automating common parts of Skills Exercises
-- **[markdown-templates](/markdown-templates)**: Ready-to-use Markdown templates for creating consistent exercise documentation, instructions, and README files
-- **[actions](/actions)**: Simple composite actions to help when building GitHub Skills exercises
+- **[.github/workflows](/.github/workflows)**: Fluxos de trabalho do GitHub Actions para automatizar partes comuns dos Exercícios Skills
+- **[markdown-templates](/markdown-templates)**: Modelos Markdown prontos para uso para criar documentação de exercícios consistente, instruções e arquivos README
+- **[actions](/actions)**: Ações compostas simples para ajudar na construção de exercícios
 
-## Examples
+## Exemplos
 
-### ⚙️ Reusable Workflows
+### ⚙️ Fluxos de Trabalho Reutilizáveis
 
-For a full list of reusable workflows go to the **[.github/workflows](/.github/workflows)** directory.
+Para uma lista completa de fluxos de trabalho reutilizáveis, acesse o diretório **[.github/workflows](/.github/workflows)**.
 
-#### Starting an exercise
+#### Iniciando um exercício
 
 ```yaml
 jobs:
   start_exercise:
-    name: Start Exercise
-    uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@<git-tag>
+    name: Iniciar Exercício
+    uses: impacta-ghcp-eng-moderna/exercise-toolkit/.github/workflows/start-exercise.yml@<git-tag>
     with:
-      exercise-title: "Introduction to GitHub Copilot"
-      intro-message: "Let's get you started with GitHub Copilot :robot: ! We will learn ..."
+      exercise-title: "Introdução ao GitHub Copilot"
+      intro-message: "Vamos começar com o GitHub Copilot :robot: ! Aprenderemos ..."
 ```
 
-#### Finding an exercise
+#### Encontrando um exercício
 
 ```yaml
 jobs:
   find_exercise:
-    name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@<git-tag>
+    name: Encontrar Issue do Exercício
+    uses: impacta-ghcp-eng-moderna/exercise-toolkit/.github/workflows/find-exercise-issue.yml@<git-tag>
 ```
 
-### 📋 Markdown Templates
+### 📋 Modelos Markdown
 
-For a full list of markdown templates go to the **[markdown-templates](/markdown-templates)** directory.
+Para uma lista completa de modelos markdown, acesse o diretório **[markdown-templates](/markdown-templates)**.
 
 ```yaml
 steps:
-  - name: Get markdown templates
+  - name: Obter modelos markdown
     uses: actions/checkout@v6
     with:
-      repository: skills/exercise-toolkit
+      repository: impacta-ghcp-eng-moderna/exercise-toolkit
       path: exercise-toolkit
       ref: <git-tag>
 
-  - name: Use the template
+  - name: Usar o modelo
     run: |
       cat exercise-toolkit/markdown-templates/step-feedback/checking-work.md
 ```
 
-#### Using with GrantBirki/comment for issue comments
+#### Usando com GrantBirki/comment para comentários em issues
 
-Templates are often used with [GrantBirki/comment](https://github.com/GrantBirki/comment) to create dynamic comments on issues or pull requests:
+Os modelos geralmente são usados com [GrantBirki/comment](https://github.com/GrantBirki/comment) para criar comentários dinâmicos em issues ou pull requests:
 
 ```yaml
 steps:
-  - name: Get markdown templates
+  - name: Obter modelos markdown
     uses: actions/checkout@v6
     with:
-      repository: skills/exercise-toolkit
+      repository: impacta-ghcp-eng-moderna/exercise-toolkit
       path: exercise-toolkit
       ref: <git-tag>
 
-  - name: Create comment - step finished
+  - name: Criar comentário - etapa concluída
     uses: GrantBirki/comment@v2.1.1
     with:
       file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
@@ -94,20 +92,20 @@ steps:
         next_step_number: 2
 ```
 
-#### Using with action-text-variables for file updates
+#### Usando com action-text-variables para atualizações de arquivo
 
-Markdown templates can also be used with [skills/action-text-variables](https://github.com/skills/action-text-variables) to generate dynamic content for any purpose, e.g updating a file.
+Os modelos Markdown também podem ser usados com [skills/action-text-variables](https://github.com/skills/action-text-variables) para gerar conteúdo dinâmico para qualquer finalidade, por exemplo, atualizar um arquivo.
 
 ```yaml
 steps:
-  - name: Get markdown templates
+  - name: Obter modelos markdown
     uses: actions/checkout@v6
     with:
-      repository: skills/exercise-toolkit
+      repository: impacta-ghcp-eng-moderna/exercise-toolkit
       path: exercise-toolkit
       ref: <git-tag>
 
-  - name: Build README from template
+  - name: Construir README a partir do modelo
     id: build-readme
     uses: skills/action-text-variables@v4
     with:
@@ -117,16 +115,16 @@ steps:
         login: ${{ github.actor }}
         issue_url: ${{ needs.create_exercise.outputs.issue-url }}
 
-  - name: Update README file
+  - name: Atualizar arquivo README
     run: echo "$README_CONTENT" > README.md
     env:
       README_CONTENT: ${{ steps.build-readme.outputs.updated-text }}
 ```
 
-## Notable Resources
+## Recursos Notáveis
 
-These GitHub Actions are particularly useful when creating GitHub Skills Exercises:
+Essas GitHub Actions são particularmente úteis ao criar exercícios:
 
-- **[skills/action-text-variables](https://github.com/skills/action-text-variables)**: Replace variables in template files with dynamic content
-- **[skills/action-keyphrase-checker](https://github.com/skills/action-keyphrase-checker)**: Verify if specific keyphrases exist in files or content
-- **[GrantBirki/comment](https://github.com/GrantBirki/comment)**: Create comments on GitHub issues or pull requests with support for Nunjucks templating
+- **[skills/action-text-variables](https://github.com/skills/action-text-variables)**: Substitua variáveis em arquivos de modelo por conteúdo dinâmico
+- **[skills/action-keyphrase-checker](https://github.com/skills/action-keyphrase-checker)**: Verifique se frases-chave específicas existem em arquivos ou conteúdo
+- **[GrantBirki/comment](https://github.com/GrantBirki/comment)**: Crie comentários em issues ou pull requests do GitHub com suporte para templating Nunjucks

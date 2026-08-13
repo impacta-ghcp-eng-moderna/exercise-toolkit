@@ -30,7 +30,7 @@ permissions:
   issues: write # Create issue
 
 env:
-  EXERCISE_TOOLKIT_REF: 2bed354b84a2633bc05cb5d6c8658bfa47345445
+  EXERCISE_TOOLKIT_REF: main
 
 jobs:
   disable_workflows:
@@ -67,7 +67,7 @@ jobs:
       - name: Get response templates
         uses: actions/checkout@v6
         with:
-          repository: skills/exercise-toolkit
+          repository: impacta-ghcp-eng-moderna/exercise-toolkit
           path: exercise-toolkit
           ref: ${{ env.EXERCISE_TOOLKIT_REF }}
 

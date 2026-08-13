@@ -1,11 +1,9 @@
 # {{ title }}
 
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
+Olá {{ login }}!
 
-Hey {{ login }}!
+Tudo pronto! Seu exercício está preparado. Espero que aproveite! 💚
 
-Mona here. I'm done preparing your exercise. Hope you enjoy! 💚
+Lembre-se, se você tiver alguma dúvida, peça ajuda para seu/sua instrutor/instrutora! 🧑‍🏫
 
-Remember, it's self-paced so feel free to take a break! ☕️
-
-[![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)]({{ issue_url }})
+[![](https://img.shields.io/badge/Ir%20para%20o%20Exercício-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)]({{ issue_url }})
